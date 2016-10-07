@@ -11,7 +11,7 @@ var app = angular.module("AppMod", ["ngRoute"])
 
 		$http.get('http://localhost:8080/majors')
 			.then(function(resp){
-				self.students = resp.data;
+				self.majors = resp.data;
 			},function(err) {
 
 			});
