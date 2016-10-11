@@ -38,9 +38,9 @@ div#leftbar {
 	background-color:grey;
 }
 div#content {
-	width:74%;
+	width:100%;
 	display:inline-block;
 }
 div#footer {
 	background-color: lightblue;
-}
+}	

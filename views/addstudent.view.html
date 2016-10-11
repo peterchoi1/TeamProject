@@ -1,0 +1,52 @@
+<div style="width:50%;margin:10px auto;">
+<h1>Add Student Page</h1>
+<p>This is the add student page</p>
+<form name="myForm">
+	<div class="form-group row">
+		<label for="student-firstname" class="col-xs-2 col-form-label">First name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="first_name" id="student-firstname" name="firstNameInput" required>
+				<span style="color:red" ng-show="myForm.firstNameInput.$dirty && myForm.firstNameInput.$invalid">
+					<span ng-show="myForm.firstNameInput.$error.required">First Name is required.</span>
+				</span>
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-lastname" class="col-xs-2 col-form-label">Last name</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="last_name" id="student-lastname" name="lastNameInput" required>
+				<span style="color:red" ng-show="myForm.lastNameInput.$dirty && myForm.lastNameInput.$invalid">
+					<span ng-show="myForm.lastNameInput.$error.required">Last Name is required.</span>
+				</span>
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-sat" class="col-xs-2 col-form-label">SAT</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="sat" id="student-sat" name="satInput" required>
+				<span style="color:red" ng-show="myForm.satInput.$dirty && myForm.satInput.$invalid">
+					<span ng-show="myForm.satInput.$error.required">SAT is required.</span>
+				</span>
+		</div>
+  	</div>
+	<div class="form-group row">
+		<label for="student-gpa" class="col-xs-2 col-form-label">GPA</label>
+		 <div class="col-xs-10">
+		 	<input class="form-control" type="text" ng-model="gpa" id="student-gpa" name="gpaInput" required>
+				<span style="color:red" ng-show="myForm.gpaInput.$dirty && myForm.gpaInput.$invalid">
+					<span ng-show="myForm.gpaInput.$error.required">GPA is required.</span>
+				</span>
+		</div>
+  	</div>
+		<div class="form-group row">
+			<label for="student-majorId" class="col-xs-2 col-form-label">Major ID</label>
+			 <div class="col-xs-10">
+			 	<input class="form-control" type="text" ng-model="majorId" id="student-majorId">
+			</div>
+	  	</div>
+		</form>
+	<button ng-disabled="myForm.$invalid" type="button" class="btn btn-success" ng-click="ctrl.addStudent(first_name,last_name,sat,gpa,majorId)">Insert</button>
+	&nbsp;
+	<button type="button" class="btn btn-default" ng-click="ctrl.addclear()">Clear</button>
+	&nbsp;
+</div>

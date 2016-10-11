@@ -73,7 +73,7 @@ public class StudentController {
 //		student.setLast_name(lname);
 //		student.setGpa(gpa);
 //		student.setSat(sat);
-//		student.setMajor_id(majorid);
+//		student.setMajor_id(majorid);   
 //		System.out.println("Modified instance:" + student);
 
         studentService.updateStudent(student);

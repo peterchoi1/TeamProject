@@ -28,8 +28,8 @@ public class DbConfiguration {
 	        BasicDataSource dataSource = new BasicDataSource();
 	        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 	        dataSource.setUrl("jdbc:mysql://localhost:3306/tiy2?autoReconnect=true&useSSL=false");
-	        dataSource.setUsername("lslui1");
-	        dataSource.setPassword("mysql");
+	        dataSource.setUsername("root");
+	        dataSource.setPassword("firelearning1");
 	        return dataSource;
 	    }
 
