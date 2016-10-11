@@ -22,6 +22,9 @@ appMod.config(['$routeProvider', function($routeProvider) {
 		}).when('/about', {
 			templateUrl: 'views/about.view.html'
 
+		}).when('/major', {
+			templateUrl: 'views/major.view.html'
+
 		})
 		.otherwise({redirectTo: '/'});
 

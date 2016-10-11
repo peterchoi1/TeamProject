@@ -1,0 +1,29 @@
+<div style="width:50%;margin:10px auto;">
+	<h1>Major Listing</h1>
+	<table class="table">
+		<thead>
+			<tr>
+
+				<td>
+					<button>ID</button>
+				</td>
+
+				<td>
+					<button>Description</button>
+				</td>
+
+				<td>
+					<button>Req SAT</button>
+				</td>
+
+			</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="major in ctrl.majors">
+			<td><a href="#/major/{{major.id}}">{{major.id}}</a></td>
+			<td ng-bind="major.description"></td>
+			<td ng-bind="major.req_sat"></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
