@@ -1,22 +1,25 @@
 
 
 -- drop all tables
+
+drop table if exists status;
+drop table if exists grade;
+drop table if exists login;
 drop table if exists major_class_relationship;
 drop table if exists student_class_relationship;
-drop table if exists student;
-drop table if exists major;
 drop table if exists assignment;
 drop table if exists class;
 drop table if exists employee;
 drop table if exists role;
-drop table if exists login;
-drop table if exists status;
-drop table if exists grade;
+drop table if exists student;
+drop table if exists major;
+
+
 -- create the tables
 create table major (
 	id int primary key auto_increment,
 	description varchar(50) not null,
-	req_gpa decimal(4,2)
+	req_sat int not null
 );
 
 create table student (
@@ -81,11 +84,12 @@ create table login (
     user_id int,
 	admin_code tinyint,
     password varchar(10) not null,
-    user_name varchar(20) null, 
+    user_name varchar(20) not null, 
 	foreign key (user_id) references student(id)
     );
 create table status (
-	enrolled tinyint,
+	id int primary key auto_increment,
+	enrolled tinyint,  
     completed tinyint,
     auditing tinyint,
     withdrew tinyint,
@@ -95,6 +99,25 @@ create table status (
 create table grade (
 	id int primary key auto_increment,
 	grade tinyint not null
+);
+create table grade_history (
+	id int primary key auto_increment,
+	semester varchar(20),
+    student_id int,
+	gpa decimal(4,2) not null,
+    foreign key (student_id) references student(id)
+);
+create table major_grade_history (
+	id int primary key auto_increment,
+	semester varchar(20),
+    major_id int,
+	gpa decimal(4,2) not null,
+    foreign key (major_id) references major(id)
+);
+create table total_grade_history (
+	id int primary key auto_increment,
+	semester varchar(20),
+    gpa decimal(4,2) not null
 );
 -- MAJOR: Sample data
 INSERT major (id, description, req_gpa) VALUES (1,'General Business',2.8);
@@ -231,6 +254,28 @@ INSERT student_class_relationship (student_id,class_id,status) VALUES (170,10103
 INSERT student_class_relationship (student_id,class_id,status) VALUES (180,50101,'Enrolled');
 INSERT student_class_relationship (student_id,class_id,status) VALUES (190,60221,'Enrolled');
 
+-- login sample data
+INSERT login (user_id,admin_code,password,user_name) VALUES (100,1,'pswd100','eephram'); 
+INSERT login (user_id,admin_code,password,user_name) VALUES (120,1,'pswd120','ggould');
+INSERT login (user_id,admin_code,password,user_name) VALUES (130,1,'pswd130','aant');
+INSERT login (user_id,admin_code,password,user_name) VALUES (140,1,'pswd140','hhess');
+INSERT login (user_id,admin_code,password,user_name) VALUES (150,1,'pswd150','ccaldwell');
+INSERT login (user_id,admin_code,password,user_name) VALUES (160,1,'pswd160','jjoyce');
+INSERT login (user_id,admin_code,password,user_name) VALUES (170,1,'pswd170','ddumas');
+INSERT login (user_id,admin_code,password,user_name) VALUES (180,1,'pswd180','kkarft');
+INSERT login (user_id,admin_code,password,user_name) VALUES (190,1,'pswd190','ffountain');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd010','jdowney');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd020','jjones');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd030','btensi');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd040','snagy');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd050','fschell');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd060','mbellman');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd070','ghunt');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd080','abrock');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd090','lseger');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd0100','sbrooks');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd0120','jmiller');
+INSERT login (user_id,admin_code,password,user_name) VALUES (null,2,'pswd0130','jsanders');
 
-
+-- status sample data
 
