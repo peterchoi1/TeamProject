@@ -2,6 +2,10 @@ package ssa.config;
 
 import javax.sql.DataSource;
 
+
+
+
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +17,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import ssa.entity.Major;
 import ssa.entity.Student;
+import ssa.entity.Class;
+import ssa.entity.SCR;
+import ssa.entity.Employee;
 
 @Configuration
 @EnableTransactionManagement
@@ -28,8 +35,8 @@ public class DbConfiguration {
 	        BasicDataSource dataSource = new BasicDataSource();
 	        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 	        dataSource.setUrl("jdbc:mysql://localhost:3306/tiy2?autoReconnect=true&useSSL=false");
-	        dataSource.setUsername("root");
-	        dataSource.setPassword("firelearning1");
+	        dataSource.setUsername("lslui1");
+	        dataSource.setPassword("mysql");
 	        return dataSource;
 	    }
 
@@ -38,6 +45,9 @@ public class DbConfiguration {
 	        return new LocalSessionFactoryBuilder(getDataSource())
 	        		.addAnnotatedClasses(Student.class)
 	        		.addAnnotatedClass(Major.class)	
+	        		.addAnnotatedClass(Class.class)
+	        		.addAnnotatedClass(SCR.class)
+	        		.addAnnotatedClass(Employee.class)
 	                .buildSessionFactory();
 	    }
 

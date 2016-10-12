@@ -1,14 +1,32 @@
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\service\MajorService.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\dao\MajorDAO.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\dao\IMajorDAO.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\controller\StudentController.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\entity\Major.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\config\DbConfiguration.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\service\IStudentService.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\entity\Student.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\application\Application.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\service\StudentService.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\controller\MajorController.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\service\IMajorService.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\dao\IStudentDAO.java
-C:\Users\admin\Desktop\Team Project - Updated\JAVA CODE\src\main\java\ssa\dao\StudentDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\ISCRService.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\ISCRDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\entity\Employee.java
+C:\Workspace\TeamProject\src\main\java\ssa\entity\Class.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\IEmployeeService.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\IStudentDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\EmployeeService.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\EmployeeDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\IMajorService.java
+C:\Workspace\TeamProject\src\main\java\ssa\controller\EmployeeController.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\IClassDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\ClassDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\SCRService.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\IMajorDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\controller\StudentController.java
+C:\Workspace\TeamProject\src\main\java\ssa\entity\Major.java
+C:\Workspace\TeamProject\src\main\java\ssa\entity\SCR.java
+C:\Workspace\TeamProject\src\main\java\ssa\controller\ClassController.java
+C:\Workspace\TeamProject\src\main\java\ssa\controller\SCRController.java
+C:\Workspace\TeamProject\src\main\java\ssa\application\Application.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\MajorService.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\IStudentService.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\IClassService.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\StudentDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\controller\MajorController.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\MajorDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\entity\Student.java
+C:\Workspace\TeamProject\src\main\java\ssa\config\DbConfiguration.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\SCRDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\ClassService.java
+C:\Workspace\TeamProject\src\main\java\ssa\dao\IEmployeeDAO.java
+C:\Workspace\TeamProject\src\main\java\ssa\service\StudentService.java

@@ -67,15 +67,6 @@ public class StudentController {
 	
 	@RequestMapping(value="/updatestudent", method = RequestMethod.PUT)
     public ResponseEntity<Void> updateStudent(@RequestBody Student student) {
-		 
-//		Student student = studentService.getStudentById(id);
-//		student.setFirst_name(fname);
-//		student.setLast_name(lname);
-//		student.setGpa(gpa);
-//		student.setSat(sat);
-//		student.setMajor_id(majorid);   
-//		System.out.println("Modified instance:" + student);
-
         studentService.updateStudent(student);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
