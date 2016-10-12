@@ -231,6 +231,6 @@ INSERT student_class_relationship (student_id,class_id,status) VALUES (170,10103
 INSERT student_class_relationship (student_id,class_id,status) VALUES (180,50101,'Enrolled');
 INSERT student_class_relationship (student_id,class_id,status) VALUES (190,60221,'Enrolled');
 
---
+
 
 
