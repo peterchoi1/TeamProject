@@ -10,7 +10,8 @@ drop table if exists class;
 drop table if exists employee;
 drop table if exists role;
 drop table if exists login;
-
+drop table if exists status;
+drop table if exists grade;
 -- create the tables
 create table major (
 	id int primary key auto_increment,
@@ -25,7 +26,7 @@ create table student (
 	sat int,
 	gpa decimal(4,2) not null,
 	major_id int,
-	foreign key (major_id) references major(id)
+    foreign key (major_id) references major(id)
 );
 create table role (
 	id tinyint primary key,
@@ -71,16 +72,30 @@ create table student_class_relationship (
 	student_id int not null,
 	class_id int not null,
     grade varchar(5),
+    status varchar(50),
     foreign key (student_id) references student(id),
 	foreign key (class_id) references class(id)
 );
 create table login (
+	id int primary key auto_increment,
+    user_id int,
 	admin_code tinyint,
     password varchar(10) not null,
-    user_name varchar(20) not null 
-
+    user_name varchar(20) null, 
+	foreign key (user_id) references student(id)
+    );
+create table status (
+	enrolled tinyint,
+    completed tinyint,
+    auditing tinyint,
+    withdrew tinyint,
+    student_class_id int,
+    foreign key (student_class_id) references student_class_relationship(id)
 );
-
+create table grade (
+	id int primary key auto_increment,
+	grade tinyint not null
+);
 -- MAJOR: Sample data
 INSERT major (id, description, req_gpa) VALUES (1,'General Business',2.8);
 INSERT major (id, description, req_gpa) VALUES (2,'Accounting', 2.9);
@@ -205,16 +220,16 @@ INSERT major_class_relationship (major_id, class_id) VALUES(4,20404); -- Math | 
 INSERT major_class_relationship (major_id, class_id) VALUES(4,30101); -- Math | His 101
 
 -- Classes taken by a student
-INSERT student_class_relationship (student_id,class_id) VALUES (100,10101);
-INSERT student_class_relationship (student_id,class_id) VALUES (110,30101);
-INSERT student_class_relationship (student_id,class_id) VALUES (120,20201);
-INSERT student_class_relationship (student_id,class_id) VALUES (130,20202);
-INSERT student_class_relationship (student_id,class_id) VALUES (140,10101);
-INSERT student_class_relationship (student_id,class_id) VALUES (150,10102);
-INSERT student_class_relationship (student_id,class_id) VALUES (160,40311);
-INSERT student_class_relationship (student_id,class_id) VALUES (170,10103);
-INSERT student_class_relationship (student_id,class_id) VALUES (180,50101);
-INSERT student_class_relationship (student_id,class_id) VALUES (190,60221);
+INSERT student_class_relationship (student_id,class_id,status) VALUES (100,10101,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (110,30101,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (120,20201,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (130,20202,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (140,10101,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (150,10102,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (160,40311,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (170,10103,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (180,50101,'Enrolled');
+INSERT student_class_relationship (student_id,class_id,status) VALUES (190,60221,'Enrolled');
 
 --
 
