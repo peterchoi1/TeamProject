@@ -1,7 +1,9 @@
 
 
 -- drop all tables
-
+drop table if exists total_grade_history;
+drop table if exists major_grade_history;
+drop table if exists grade_history;
 drop table if exists status;
 drop table if exists grade;
 drop table if exists login;
@@ -50,7 +52,7 @@ create table class (
 	subject varchar(30) not null,
 	section int not null,
 	instructor_id int,
-    semester varchar(20) not null,
+    semester int,
     year int,
 	foreign key (instructor_id) references employee(id)
 );
@@ -102,21 +104,21 @@ create table grade (
 );
 create table grade_history (
 	id int primary key auto_increment,
-	semester varchar(20),
+	semester int,
     student_id int,
 	gpa decimal(4,2) not null,
     foreign key (student_id) references student(id)
 );
 create table major_grade_history (
 	id int primary key auto_increment,
-	semester varchar(20),
+	semester int,
     major_id int,
 	gpa decimal(4,2) not null,
     foreign key (major_id) references major(id)
 );
 create table total_grade_history (
 	id int primary key auto_increment,
-	semester varchar(20),
+	semester int,
     gpa decimal(4,2) not null
 );
 -- MAJOR: Sample data
@@ -159,47 +161,47 @@ INSERT employee VALUES (130,'Jason','Sanders',21,0,1);
 
 -- CLASS: Sample data
 -- English
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10101,'English',101,10,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10102,'English',102,NULL,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10103,'English',103,NULL,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10201,'English',201,10,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10202,'English',202,NULL,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10203,'English',203,NULL,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10301,'English',301,10,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10302,'English',302,NULL,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10303,'English',303,NULL,'Spring',2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10101,'English',101,10,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10102,'English',102,NULL,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10103,'English',103,NULL,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10201,'English',201,10,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10202,'English',202,NULL,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10203,'English',203,NULL,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10301,'English',301,10,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10302,'English',302,NULL,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(10303,'English',303,NULL,2,2016);
 -- Math
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20201,'Math',201,50,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20202,'Math',202,NULL,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20203,'Math',203,NULL,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20204,'Math',204,NULL,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20401,'Math',401,50,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20402,'Math',402,NULL,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20403,'Math',403,NULL,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20404,'Math',404,NULL,'Spring',2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20201,'Math',201,50,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20202,'Math',202,NULL,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20203,'Math',203,NULL,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20204,'Math',204,NULL,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20401,'Math',401,50,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20402,'Math',402,NULL,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20403,'Math',403,NULL,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(20404,'Math',404,NULL,2,2016);
 -- History
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(30101,'History',101,80,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(30202,'History',201,80,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(30303,'History',301,80,'Spring',2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(30101,'History',101,80,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(30202,'History',201,80,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(30303,'History',301,80,2,2016);
 -- Computer Science
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40311,'Computer Science',311,40,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40312,'Computer Science',312,40,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40313,'Computer Science',313,40,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40441,'Computer Science',441,40,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40442,'Computer Science',442,40,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40443,'Computer Science',443,40,'Spring',2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40311,'Computer Science',311,40,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40312,'Computer Science',312,40,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40313,'Computer Science',313,40,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40441,'Computer Science',441,40,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40442,'Computer Science',442,40,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(40443,'Computer Science',443,40,2,2016);
 -- Psychology
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50101,'Psychology',101,20,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50102,'Psychology',102,20,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50231,'Psychology',231,20,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50232,'Psychology',232,20,'Spring',2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50101,'Psychology',101,20,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50102,'Psychology',102,20,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50231,'Psychology',231,20,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(50232,'Psychology',232,20,2,2016);
 -- Education
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60221,'Education',221,60,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60222,'Education',222,60,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60223,'Education',223,60,'Fall',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60351,'Education',351,70,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60352,'Education',352,70,'Spring',2016);
-INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60353,'Education',353,70,'Spring',2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60221,'Education',221,60,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60222,'Education',222,60,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60223,'Education',223,60,1,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60351,'Education',351,70,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60352,'Education',352,70,2,2016);
+INSERT class (id,subject,section,instructor_id,semester,year) VALUES(60353,'Education',353,70,2,2016);
 
 -- Classes needed for major: General Business
 INSERT major_class_relationship (major_id, class_id) VALUES(1,10101); -- Gen bus | Eng 101
