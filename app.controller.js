@@ -10,6 +10,13 @@ appMod.controller("AppCtrl", ['$http', '$routeParams', '$location', '$scope', fu
 
 			});
 
+			$http.get('http://localhost:8080/majors')
+				.then(function(resp){
+					self.majors = resp.data;
+				},function(err) {
+
+				});
+
 if(self.id != undefined) {
 		$http.get('http://localhost:8080/student/'+self.id)
 			.then(function(resp){
@@ -83,6 +90,16 @@ if(self.id != undefined) {
 				});
 
 		};
+
+	$scope.propertyName = 'sat';
+  $scope.reverse = true;
+  $scope.table = 'table';
+
+
+  $scope.sortBy = function(propertyName) {
+    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+    $scope.propertyName = propertyName;
+  };
 
 	}]) // end controller
 

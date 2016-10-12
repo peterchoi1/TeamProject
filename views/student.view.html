@@ -1,12 +1,37 @@
 <div style="width:50%;margin:10px auto;">
 	<h1>Student Listing</h1>
+	<pre>Sort by = {{propertyName}}; reverse = {{reverse}}</pre>
+	<button>Set to unsorted</button>
 	<table class="table">
 		<thead>
-			<tr><td>Name</td><td>SAT</td><td>GPA</td></tr>
+			<tr>
+
+				<td>
+        <button ng-click="sortBy('firstname')">First Name</button>
+        <span class="sortorder" ng-show="propertyName === 'firstname'" ng-class="{reverse: reverse}"></span>
+				</td>
+
+				<td>
+        <button ng-click="sortBy('lastname')">Last Name</button>
+        <span class="sortorder" ng-show="propertyName === 'lastname'" ng-class="{reverse: reverse}"></span>
+				</td>
+
+				<td>
+					<button ng-click="sortBy('sat')">SAT</button>
+        	<span class="sortorder" ng-show="propertyName === 'sat'" ng-class="{reverse: reverse}"></span>
+				</td>
+
+				<td>
+					<button ng-click="sortBy('gpa')">GPA</button>
+        	<span class="sortorder" ng-show="propertyName === 'gpa'" ng-class="{reverse: reverse}"></span>
+				</td>
+
+			</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="student in ctrl.students">
-			<td><a href="#/student/{{student.id}}">{{student.first_name + ' ' + student.last_name}}</a></td>
+		<tr ng-repeat="student in ctrl.students | orderBy:propertyName:reverse">
+			<td><a href="#/student/{{student.id}}">{{student.first_name}}</a></td>
+			<td><a href="#/student/{{student.id}}">{{student.last_name}}</a></td>
 			<td ng-bind="student.sat"></td>
 			<td ng-bind="student.gpa"></td>
 		</tr>
